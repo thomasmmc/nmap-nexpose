@@ -1,0 +1,6 @@
+#These are the variables needed for Nmap-Nexpose to run
+nmap_xml: 092714_results.xml
+nexpose_host: nexpose.domain.tld
+nexpose_user: nxadmin
+nexpose_pass: nxadmin
+nexpose_site: 1

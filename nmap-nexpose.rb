@@ -24,7 +24,7 @@ rescue ArgumentError => e
 end
 
 #Running the method nmap_load which uses the namp gem to load our nmap results xml
-new_ip = nmap_load(shodan_search)
+new_ip = nmap_load(nmap_xml)
 
 if new_ip.any?
   begin

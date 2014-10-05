@@ -10,11 +10,8 @@ res = Array.new
       end
     end
   end
-puts res
-
+res
 rescue Exception => e
        return "Runy-Nmap gem Error: #{e.to_s}"
  end
 end
-
-nmap_load('test.xml')

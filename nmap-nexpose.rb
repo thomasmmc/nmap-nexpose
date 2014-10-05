@@ -2,6 +2,7 @@ require 'nexpose'
 require 'yaml'
 require 'nmap'
 require_relative 'nexpose_edit'
+require_relative 'nmap_load'
 
 v1 = ARGV[0]
 if v1.nil?
@@ -24,6 +25,7 @@ rescue ArgumentError => e
 end
 
 #Running the method nmap_load which uses the namp gem to load our nmap results xml
+new_ip = Array.new
 new_ip = nmap_load(nmap_xml)
 
 if new_ip.any?
@@ -31,6 +33,7 @@ if new_ip.any?
     puts "New ip has been found, going to update Nexpose"
     #Running the method which uses the nexpose gem to update our specified site
     nexpose_edit_site(instance_name,username,password,nexpose_site,new_ip)
+    #Rescuing any error if there is an issue
   rescue ArgumentError => e
     puts "Could not update Nexpose: #{e.message}"
   end

@@ -14,6 +14,6 @@ def nexpose_edit_site(instance,username,password,site_id,newip)
     #Saving the changes to the site
     site.save(nsc)
   rescue Exception => e
-        return "Nexpose API Error: #{e.to_s}"
+        raise "Nexpose API Error: #{e.to_s}"
   end
 end
